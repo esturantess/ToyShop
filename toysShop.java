@@ -17,7 +17,7 @@ public class toysShop {
         toys.add(toyThree);
         toys.add(toyFour);
 
-        System.out.println("Игрушки, доступные для розыгрыша: ");
+        System.out.println("РРіСЂСѓС€РєРё, РґРѕСЃС‚СѓРїРЅС‹Рµ РґР»СЏ СЂРѕР·С‹РіСЂС‹С€Р°: ");
         showToys(toys);
         menuToy(toys);
     }
@@ -38,33 +38,33 @@ public class toysShop {
 
         while (menu) {
 
-            System.out.println("\nВыберите действие:");
-            System.out.println("1. Добавить новую игрушку для розыгрыша");
-            System.out.println("2. Вывести список оставшихся игрушек");
-            System.out.println("3. Разыграть игрушку");
-            System.out.println("Для выхода - любой другой символ");
+            System.out.println("\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:");
+            System.out.println("1. Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ РёРіСЂСѓС€РєСѓ РґР»СЏ СЂРѕР·С‹РіСЂС‹С€Р°");
+            System.out.println("2. Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє РѕСЃС‚Р°РІС€РёС…СЃСЏ РёРіСЂСѓС€РµРє");
+            System.out.println("3. Р Р°Р·С‹РіСЂР°С‚СЊ РёРіСЂСѓС€РєСѓ");
+            System.out.println("Р”Р»СЏ РІС‹С…РѕРґР° - Р»СЋР±РѕР№ РґСЂСѓРіРѕР№ СЃРёРјРІРѕР»");
 
             choice = inputToy.nextLine();
 
             switch (choice) {
 
                 case "1":
-                    System.out.print("Введите наименование новой игрушки: ");
+                    System.out.print("Р’РІРµРґРёС‚Рµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РЅРѕРІРѕР№ РёРіСЂСѓС€РєРё: ");
                     name = inputToy.nextLine();
-                    System.out.println("Введите 'вес' (вероятность выпадения) игрушки: ");
+                    System.out.println("Р’РІРµРґРёС‚Рµ 'РІРµСЃ' (РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊ РІС‹РїР°РґРµРЅРёСЏ) РёРіСЂСѓС€РєРё: ");
                     weight = inputToy.nextInt();
                     inputToy.nextLine();
                     Toys newToy = new Toys(name, weight);
                     toys.add(newToy);
 
-                    System.out.println("\nТекущий список игрушек: ");
+                    System.out.println("\nРўРµРєСѓС‰РёР№ СЃРїРёСЃРѕРє РёРіСЂСѓС€РµРє: ");
                     showToys(toys);
                     break;
 
                 case "2":
-                    if (toys.size() == 0) System.out.println("\nИгрушек нет :(\n");
+                    if (toys.size() == 0) System.out.println("\nРРіСЂСѓС€РµРє РЅРµС‚ :(\n");
                     else {
-                        System.out.println("\nСписок игрушек: ");
+                        System.out.println("\nРЎРїРёСЃРѕРє РёРіСЂСѓС€РµРє: ");
                         showToys(toys);
                     }
                     break;
@@ -94,11 +94,11 @@ public class toysShop {
                     Toys reward;
                     if (toysCopy.size() == 1) reward = toysCopy.get(0);
                     if (toysCopy.size() == 0) {
-                        System.out.println("\nИгрушки закончились :(\n");
+                        System.out.println("\nРРіСЂСѓС€РєРё Р·Р°РєРѕРЅС‡РёР»РёСЃСЊ :(\n");
                         toys.clear();
                     } else {
                         reward = toysCopy.get(random.nextInt(toysCopy.size()));
-                        System.out.println("\nВыпавшая игрушка:");
+                        System.out.println("\nР’С‹РїР°РІС€Р°СЏ РёРіСЂСѓС€РєР°:");
                         System.out.println(reward);
 
                         try (FileWriter fw = new FileWriter("rewards.txt", true)) {
@@ -106,7 +106,7 @@ public class toysShop {
                             fw.write("\n");
                             fw.close();
                         } catch (Exception ex) {
-                            System.out.println("Ошибка, попробуйте снова");
+                            System.out.println("РћС€РёР±РєР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°");
                         }
 
                         for (Toys thing : toys) {
@@ -119,7 +119,7 @@ public class toysShop {
                             }
                         }
 
-                        System.out.println("\nОстались игрушки: ");
+                        System.out.println("\nРћСЃС‚Р°Р»РёСЃСЊ РёРіСЂСѓС€РєРё: ");
                         showToys(toys);
                     }
                     break;
